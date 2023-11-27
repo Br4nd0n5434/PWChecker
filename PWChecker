@@ -1,0 +1,42 @@
+def passFunction(pw):
+
+  specialSym = ["$", "@", "#", "!"]
+  special = False
+
+  if pw == pw.upper() or pw == pw.lower():
+    print("Password must contain a mixture of lower and uppercase characters!")
+    return False
+  if len(pw) < 6 or len(pw) > 20:
+    print("Password must be between 6 and 20 characters in length!")
+    return False
+  for char in pw:
+    if char.isdigit() == True:
+        digit = True
+    if char in specialSym:
+      special = True
+        
+ 
+  if special == False:
+    print("Password must contain a special character!")
+    return False
+
+  if digit == False:
+    print("Password must contain atleast one digit!")
+    return False
+  
+  return True
+
+password = input("Please enter a password\n")
+strongPass = passFunction(password)
+if strongPass == True:
+    print("Good Password!")
+if strongPass == False:
+    print("Bad Password.")
+
+username = ""
+
+username = input("Please enter a username\n")
+
+while not username.isalpha():
+    print("Username must be alphabetic.")
+    username = input("Please enter a username\n")
